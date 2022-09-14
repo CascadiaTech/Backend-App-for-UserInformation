@@ -5,8 +5,8 @@
   "main": "index.mjs",
   "scripts": {
     "test": "npm test",
-    "start": "node ./src/app.js",
-    "build": "node ./src/app.js"
+    "start": "node ./src/app.mjs",
+    "build": "node ./src/app.mjs"
   },
   "type": "module",
   "author": "",
