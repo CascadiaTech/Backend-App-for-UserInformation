@@ -6,11 +6,6 @@ const app = express();
 app.use(cors())
 
 
-const port = 5500
-
-const server = createServer((req, res) => {
-
-
   res.statusCode = 200
   res.setHeader('Content-Type', 'text/html')
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -43,12 +38,9 @@ const server = createServer((req, res) => {
   .then((result) => (JSON.stringify(result)))
   .then((result) => (res.end(result)))
   
-})
 
 
-server.listen(port, () => {
-  console.log(`Server running at port ${port}`)
-})
+
 
 //http://127.0.0.1:5500/
 
