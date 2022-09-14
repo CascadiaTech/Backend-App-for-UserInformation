@@ -2,7 +2,7 @@
   "name": "nodejspost",
   "version": "1.0.0",
   "description": "nodejspost",
-  "main": "index.js",
+  "main": "index.mjs",
   "scripts": {
     "test": "npm test",
     "start": "node ./src/app.js",
