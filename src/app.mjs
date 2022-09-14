@@ -6,6 +6,9 @@ const app = express();
 app.use(cors())
 
 
+
+app.get((req, res) => {
+
   res.statusCode = 200
   res.setHeader('Content-Type', 'text/html')
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -38,6 +41,7 @@ app.use(cors())
   .then((result) => (JSON.stringify(result)))
   .then((result) => (res.end(result)))
   
+})
 
 
 
