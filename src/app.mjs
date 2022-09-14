@@ -5,9 +5,9 @@ import express from 'express'
 const app = express();
 app.use(cors())
 
+app.use(express.static("public"))
 
-
-app.get((req, res) => {
+app.get('/',(req, res) => {
 
   res.statusCode = 200
   res.setHeader('Content-Type', 'text/html')
@@ -39,9 +39,13 @@ app.get((req, res) => {
 
   Fetchaccnts()
   .then((result) => (JSON.stringify(result)))
-  .then((result) => (res.end(result)))
+  .then((result) => (res.send(result)))
   
 })
+
+// start the server listening for requests
+app.listen(process.env.PORT || 3000, 
+	() => console.log("Server is running..."));
 
 
 
