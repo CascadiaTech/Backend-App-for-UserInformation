@@ -2,11 +2,11 @@
   "name": "nodejspost",
   "version": "1.0.0",
   "description": "nodejspost",
-  "main": "index.mjs",
+  "main": "app.mjs",
   "scripts": {
     "test": "npm test",
-    "start": "node ./src/app.mjs",
-    "build": "node ./src/app.mjs"
+    "start": "node app.mjs",
+    "build": "node app.mjs"
   },
   "type": "module",
   "author": "",
