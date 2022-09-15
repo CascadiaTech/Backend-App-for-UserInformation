@@ -3,6 +3,7 @@ import { MongoClient } from "mongodb"
 import cors from 'cors';
 import express from 'express'
 //import { env } from 'dotenv'
+// git rm -r --cached node_modules
 
 const app = express();
 app.use(cors())
@@ -41,7 +42,14 @@ if (req.method == "GET") {
 }}     
 
 })
-app.post('/',async (req) => {
+app.post('/',async (req, res) => {
+
+  res.statusCode = 200
+  res.setHeader('Content-Type', 'application/json')
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Credentials", "true");
+  res.setHeader("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
 if (req.method == "POST") {
     try {
 
