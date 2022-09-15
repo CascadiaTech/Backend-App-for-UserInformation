@@ -40,6 +40,8 @@ if (req.method == "GET") {
         await client.close()
 }}     
 
+})
+app.post('/',async (req) => {
 if (req.method == "POST") {
     try {
 
@@ -64,6 +66,7 @@ if (req.method == "POST") {
   }
   
 }})
+
 app.listen(process.env.PORT || 5500, 
 	() => console.log("Server is running..."));
 
