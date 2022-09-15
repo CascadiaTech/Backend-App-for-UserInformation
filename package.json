@@ -4,12 +4,12 @@
   "description": "nodejspost",
   "main": "app.mjs",
   "scripts": {
-    "dev": "react-scripts start",
+
     "start": "node app.mjs",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "heroku-postbuild": "npm run build"
+    "build": "node app.mjs"
+  },
+  "engines": {
+    "node": "14.17.1"
   },
   "type": "module",
   "author": "",
