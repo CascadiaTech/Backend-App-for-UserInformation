@@ -2,12 +2,13 @@ import { createServer } from 'http'
 import { MongoClient } from "mongodb"
 import cors from 'cors';
 import express from 'express'
-import { bodyParser } from 'body-parser'
+//import { bodyParser } from 'body-parser'
 //import { env } from 'dotenv'
 // git rm -r --cached node_modules
 
 var app = express();
 app.use(cors())
+const { bodyParser } = pkg;
 
 app.use(express.static("public"))
 
