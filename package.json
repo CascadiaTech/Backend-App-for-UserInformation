@@ -5,10 +5,11 @@
   "main": "app.mjs",
   "scripts": {
     "start": "node app.mjs",
-    "build": "node app.mjs"
+    "build": "npm install"
   },
   "engines": {
-    "node": "14.17.1"
+    "node": "14.17.1",
+    "npm": "6.14.13"
   },
   "type": "module",
   "author": "",
