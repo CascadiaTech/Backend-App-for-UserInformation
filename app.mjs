@@ -66,7 +66,9 @@ if (req.method == "POST") {
 
         const doc = {
             address: req.body.address,
+            ID: req.body.ID,
             name: req.body.name,
+            account: req.body.account,
           }
           const result = await movies.insertOne(doc);
           return res.send({result:"success"})
