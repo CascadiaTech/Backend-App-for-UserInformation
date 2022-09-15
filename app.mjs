@@ -8,12 +8,12 @@ import express from 'express'
 
 var app = express();
 app.use(cors())
-const { bodyParser } = pkg;
+//const { bodyParser } = pkg;
 
 app.use(express.static("public"))
 
-app.use(bodyParser.urlencoded({extended: true})) 
-app.use(bodyParser.json()) 
+app.use(express.urlencoded({extended: true})) 
+app.use(express.json()) 
 
 app.get('/',async (req, res, next) => {
 
