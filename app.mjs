@@ -2,15 +2,19 @@ import { createServer } from 'http'
 import { MongoClient } from "mongodb"
 import cors from 'cors';
 import express from 'express'
+import { bodyParser } from 'body-parser'
 //import { env } from 'dotenv'
 // git rm -r --cached node_modules
 
-const app = express();
+var app = express();
 app.use(cors())
 
 app.use(express.static("public"))
 
-app.get('/',async (req, res) => {
+app.use(bodyParser.urlencoded({extended: true})) 
+app.use(bodyParser.json()) 
+
+app.get('/',async (req, res, next) => {
 
   res.statusCode = 200
   res.setHeader('Content-Type', 'text/html')
@@ -42,7 +46,7 @@ if (req.method == "GET") {
 }}     
 
 })
-app.post('/',async (req, res) => {
+app.post('/',async (req, res, next) => {
 
   res.statusCode = 200
   res.setHeader('Content-Type', 'application/json')
