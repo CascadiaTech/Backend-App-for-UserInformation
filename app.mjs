@@ -69,7 +69,7 @@ if (req.method == "POST") {
             name: req.body.name,
           }
           const result = await movies.insertOne(doc);
-          return result
+          return res.send({result:"success"})
     } catch(error) {
     console.log(error)
     }finally {
