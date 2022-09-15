@@ -2,6 +2,8 @@ import { createServer } from 'http'
 import { MongoClient } from "mongodb"
 import cors from 'cors';
 import express from 'express'
+//import { env } from 'dotenv'
+
 const app = express();
 app.use(cors())
 
