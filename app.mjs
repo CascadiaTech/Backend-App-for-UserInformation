@@ -1,21 +1,20 @@
-import { createServer } from 'http'
-import { MongoClient } from "mongodb"
-import cors from 'cors';
-import express from 'express'
-//import { bodyParser } from 'body-parser'
-//import { env } from 'dotenv'
-// git rm -r --cached node_modules
+// A simple Express App made by @CascadiaTech for getting user info from a MongoDB cluster and Posting information to the cluster.
+// Refer to ApeMotorcycleClub repository for the correposding code on the frontend. 
+//NOTES// git rm -r --cached node_modules
 
+import { MongoClient } from "mongodb"
+import cors from 'cors'
+import express from 'express'
+import * as dotenv from 'dotenv' // see https://github.com/motdotla/dotenv#how-do-i-use-dotenv-with-import
+
+dotenv.config()
 var app = express();
 app.use(cors())
-//const { bodyParser } = pkg;
-
 app.use(express.static("public"))
-
 app.use(express.urlencoded({extended: true})) 
 app.use(express.json()) 
 
-app.get('/',async (req, res, next) => {
+app.get('/',async (req, res) => {
 
   res.statusCode = 200
   res.setHeader('Content-Type', 'text/html')
@@ -26,28 +25,26 @@ app.get('/',async (req, res, next) => {
 
 if (req.method == "GET") {
       try {
-        const uri = 'mongodb+srv://Flaskapp:iamdiablo@clustertest.rxvyc0x.mongodb.net/?retryWrites=true&w=majority'
+        const uri = process.env.SECRETKEY
         const client = new MongoClient(uri)
         await client.connect()
         const database = client.db('Userinfo')
-        const movies = database.collection('Userinformation')
-        const cursor = await movies.find()
+        const userinfo = database.collection('Userinformation')
+        const cursor = await userinfo.find()
         const allValues = await cursor.toArray()
-        //console.log(allValues)
-        //const final = await cursor.forEach((doc) => console.log(doc))
         const final = JSON.stringify(allValues)
         res.send(final)
         return final
       } catch (error) {
         console.log(error)
       } finally {
-        const uri = 'mongodb+srv://Flaskapp:iamdiablo@clustertest.rxvyc0x.mongodb.net/?retryWrites=true&w=majority'
+        const uri = process.env.SECRETKEY
         const client = new MongoClient(uri)
         await client.close()
 }}     
 
 })
-app.post('/',async (req, res, next) => {
+app.post('/',async (req, res) => {
 
   res.statusCode = 200
   res.setHeader('Content-Type', 'application/json')
@@ -58,11 +55,11 @@ app.post('/',async (req, res, next) => {
 if (req.method == "POST") {
     try {
 
-        const uri = 'mongodb+srv://Flaskapp:iamdiablo@clustertest.rxvyc0x.mongodb.net/?retryWrites=true&w=majority'
+        const uri = process.env.SECRETKEY
         const client = new MongoClient(uri)
         await client.connect()
         const database = client.db('Userinfo')
-        const movies = database.collection('Userinformation')
+        const userinfo = database.collection('Userinformation')
 
         const doc = {
             address: req.body.address,
@@ -70,12 +67,12 @@ if (req.method == "POST") {
             name: req.body.name,
             account: req.body.account,
           }
-          const result = await movies.insertOne(doc);
+            await userinfo.insertOne(doc);
           return res.send({result:"success"})
     } catch(error) {
     console.log(error)
     }finally {
-    const uri = 'mongodb+srv://Flaskapp:iamdiablo@clustertest.rxvyc0x.mongodb.net/?retryWrites=true&w=majority'
+    const uri = process.env.SECRETKEY
     const client = new MongoClient(uri)
     await client.close()
   }
