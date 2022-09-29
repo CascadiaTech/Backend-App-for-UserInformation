@@ -1,34 +1,26 @@
-# TelegramBot
-Cryptoshackbot
+# Userinformationfetchingandposting
+A simple Node.js and Express app for fetching user information from a MongoDB Cluster and Posting information to the same cluster.
 
 
-This is an open sourced Telegram bot that can be copied by just about anyone!
-Its really easy to run, and edit.
+This is an open sourced Node.js program that can be copied by just about anyone!
+Its really easy to setup and is meant for begginers who are trying to learn the MERN stack
 
-
-Packages used:
-
-Telegraf library - https://www.npmjs.com/package/telegraf
-
-Node-Fetch - https://www.npmjs.com/package/node-fetch
-
-dotenv - https://www.npmjs.com/package/dotenv
 
 Instructions: 
 
-go to telegram and go get a Bot key from the @botfather
+creat a dotenv file with your SECRETKEY or srv string from Mongodb
 
-Use your TGAPIKEY in the .env file 
+To create an SRV key on Mongodb make yourself user credentials to read/write from your cluster and follow the steps to create a srv for a Node.js driver
+
+Use your srv key in the .env file called SECRETKEY (e.g. SECRETKEY="srv")
 
 run npm install
 run npm start
+It will run on port 5500 on your local machine. If you wish to deploy to heroku it will deploy to the preconfigured port they provide. 
 
-If compiled trying sending your bot the /start message to test your key. If it works there will be a log on your console. 
-
+if it is active you will see a console.log(server running on port....)
 Contributions: 
 
-app.js file carries all the code of the program, you can add new commands there by referring to the Telegraf documentation, if you want to add features to the base bot submit a pull request and we will review it. 
-
+app.mjs file carries all the code of the program, if you want to add features to the base repositroy submit a pull request and we will review it. 
 
 Lastly: If you liked this come see more of our work at cascadiafinance.io or @CascadiaTech on tg
-The live bot is running at @CascadiaBot.
